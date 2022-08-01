@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const port = 8080;
+  const port = 8090;
   await app.listen(port, () =>
     console.log(`Server is running on port ${port}`),
   );
