@@ -4,6 +4,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Entity,
+  DeleteDateColumn,
 } from 'typeorm';
 
 @Entity({ name: 'Post' })
@@ -17,9 +18,12 @@ export class Post {
   @Column({ nullable: false })
   content!: string;
 
-  @CreateDateColumn({ nullable: false })
-  created!: Date;
+  @CreateDateColumn({ name: 'created_at', nullable: false })
+  createdAt!: Date;
 
-  @UpdateDateColumn({ nullable: true, default: null })
-  updated?: Date;
+  @UpdateDateColumn({ name: 'updated_at', nullable: false })
+  updatedAt!: Date;
+
+  @DeleteDateColumn({ name: 'deleted_at', nullable: true, default: null })
+  deletedAt?: Date;
 }
